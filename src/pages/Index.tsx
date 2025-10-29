@@ -13,15 +13,22 @@ type Product = {
   price: number;
   image: string;
   category: string;
+  breed: string[];
+  size: string[];
+  age: string[];
 };
 
 type CartItem = Product & { quantity: number };
 
 const products: Product[] = [
-  { id: 1, name: 'Премиум ошейник', price: 3500, image: 'https://cdn.poehali.dev/projects/149af3ea-bead-4a3d-b0ab-c8d224f705f5/files/d8f926e1-9b87-47d1-a7fa-1cbd626a7bb4.jpg', category: 'Аксессуары' },
-  { id: 2, name: 'Лежанка люкс', price: 8900, image: 'https://cdn.poehali.dev/projects/149af3ea-bead-4a3d-b0ab-c8d224f705f5/files/d8f926e1-9b87-47d1-a7fa-1cbd626a7bb4.jpg', category: 'Для отдыха' },
-  { id: 3, name: 'Керамическая миска', price: 2400, image: 'https://cdn.poehali.dev/projects/149af3ea-bead-4a3d-b0ab-c8d224f705f5/files/d8f926e1-9b87-47d1-a7fa-1cbd626a7bb4.jpg', category: 'Аксессуары' },
-  { id: 4, name: 'Игрушка эко', price: 1200, image: 'https://cdn.poehali.dev/projects/149af3ea-bead-4a3d-b0ab-c8d224f705f5/files/d8f926e1-9b87-47d1-a7fa-1cbd626a7bb4.jpg', category: 'Игрушки' },
+  { id: 1, name: 'Премиум ошейник', price: 3500, image: 'https://cdn.poehali.dev/projects/149af3ea-bead-4a3d-b0ab-c8d224f705f5/files/d8f926e1-9b87-47d1-a7fa-1cbd626a7bb4.jpg', category: 'Аксессуары', breed: ['Все породы'], size: ['S', 'M', 'L'], age: ['Щенок', 'Взрослая', 'Пожилая'] },
+  { id: 2, name: 'Лежанка люкс', price: 8900, image: 'https://cdn.poehali.dev/projects/149af3ea-bead-4a3d-b0ab-c8d224f705f5/files/d8f926e1-9b87-47d1-a7fa-1cbd626a7bb4.jpg', category: 'Для отдыха', breed: ['Крупные', 'Средние'], size: ['M', 'L', 'XL'], age: ['Взрослая', 'Пожилая'] },
+  { id: 3, name: 'Керамическая миска', price: 2400, image: 'https://cdn.poehali.dev/projects/149af3ea-bead-4a3d-b0ab-c8d224f705f5/files/d8f926e1-9b87-47d1-a7fa-1cbd626a7bb4.jpg', category: 'Аксессуары', breed: ['Все породы'], size: ['S', 'M'], age: ['Щенок', 'Взрослая', 'Пожилая'] },
+  { id: 4, name: 'Игрушка эко', price: 1200, image: 'https://cdn.poehali.dev/projects/149af3ea-bead-4a3d-b0ab-c8d224f705f5/files/d8f926e1-9b87-47d1-a7fa-1cbd626a7bb4.jpg', category: 'Игрушки', breed: ['Мелкие', 'Средние'], size: ['S', 'M'], age: ['Щенок', 'Взрослая'] },
+  { id: 5, name: 'Поводок кожаный', price: 4200, image: 'https://cdn.poehali.dev/projects/149af3ea-bead-4a3d-b0ab-c8d224f705f5/files/d8f926e1-9b87-47d1-a7fa-1cbd626a7bb4.jpg', category: 'Аксессуары', breed: ['Крупные', 'Средние'], size: ['M', 'L'], age: ['Взрослая'] },
+  { id: 6, name: 'Корм премиум', price: 5500, image: 'https://cdn.poehali.dev/projects/149af3ea-bead-4a3d-b0ab-c8d224f705f5/files/d8f926e1-9b87-47d1-a7fa-1cbd626a7bb4.jpg', category: 'Питание', breed: ['Все породы'], size: ['S', 'M', 'L', 'XL'], age: ['Взрослая'] },
+  { id: 7, name: 'Переноска люкс', price: 12900, image: 'https://cdn.poehali.dev/projects/149af3ea-bead-4a3d-b0ab-c8d224f705f5/files/d8f926e1-9b87-47d1-a7fa-1cbd626a7bb4.jpg', category: 'Для путешествий', breed: ['Мелкие', 'Средние'], size: ['S', 'M'], age: ['Щенок', 'Взрослая', 'Пожилая'] },
+  { id: 8, name: 'Щетка массажная', price: 1800, image: 'https://cdn.poehali.dev/projects/149af3ea-bead-4a3d-b0ab-c8d224f705f5/files/d8f926e1-9b87-47d1-a7fa-1cbd626a7bb4.jpg', category: 'Уход', breed: ['Все породы'], size: ['S', 'M', 'L'], age: ['Щенок', 'Взрослая', 'Пожилая'] },
 ];
 
 const reviews = [
@@ -33,6 +40,9 @@ const reviews = [
 export default function Index() {
   const [cart, setCart] = useState<CartItem[]>([]);
   const [isOrderOpen, setIsOrderOpen] = useState(false);
+  const [selectedBreed, setSelectedBreed] = useState<string>('Все');
+  const [selectedSize, setSelectedSize] = useState<string>('Все');
+  const [selectedAge, setSelectedAge] = useState<string>('Все');
 
   const addToCart = (product: Product) => {
     setCart(prev => {
@@ -57,6 +67,13 @@ export default function Index() {
 
   const total = cart.reduce((sum, item) => sum + item.price * item.quantity, 0);
   const cartCount = cart.reduce((sum, item) => sum + item.quantity, 0);
+
+  const filteredProducts = products.filter(product => {
+    const breedMatch = selectedBreed === 'Все' || product.breed.includes(selectedBreed) || product.breed.includes('Все породы');
+    const sizeMatch = selectedSize === 'Все' || product.size.includes(selectedSize);
+    const ageMatch = selectedAge === 'Все' || product.age.includes(selectedAge);
+    return breedMatch && sizeMatch && ageMatch;
+  });
 
   return (
     <div className="min-h-screen">
@@ -162,9 +179,84 @@ export default function Index() {
       </section>
 
       <section className="container mx-auto px-4 py-20">
-        <h2 className="text-4xl font-bold text-center mb-12">Популярные товары</h2>
+        <h2 className="text-4xl font-bold text-center mb-8">Популярные товары</h2>
+        
+        <Card className="max-w-4xl mx-auto mb-12">
+          <CardContent className="p-6">
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+              <div>
+                <Label className="text-sm font-semibold mb-2 block">Порода</Label>
+                <div className="flex flex-wrap gap-2">
+                  {['Все', 'Мелкие', 'Средние', 'Крупные'].map(breed => (
+                    <Button
+                      key={breed}
+                      variant={selectedBreed === breed ? 'default' : 'outline'}
+                      size="sm"
+                      onClick={() => setSelectedBreed(breed)}
+                    >
+                      {breed}
+                    </Button>
+                  ))}
+                </div>
+              </div>
+              
+              <div>
+                <Label className="text-sm font-semibold mb-2 block">Размер</Label>
+                <div className="flex flex-wrap gap-2">
+                  {['Все', 'S', 'M', 'L', 'XL'].map(size => (
+                    <Button
+                      key={size}
+                      variant={selectedSize === size ? 'default' : 'outline'}
+                      size="sm"
+                      onClick={() => setSelectedSize(size)}
+                    >
+                      {size}
+                    </Button>
+                  ))}
+                </div>
+              </div>
+              
+              <div>
+                <Label className="text-sm font-semibold mb-2 block">Возраст</Label>
+                <div className="flex flex-wrap gap-2">
+                  {['Все', 'Щенок', 'Взрослая', 'Пожилая'].map(age => (
+                    <Button
+                      key={age}
+                      variant={selectedAge === age ? 'default' : 'outline'}
+                      size="sm"
+                      onClick={() => setSelectedAge(age)}
+                    >
+                      {age}
+                    </Button>
+                  ))}
+                </div>
+              </div>
+            </div>
+            
+            {(selectedBreed !== 'Все' || selectedSize !== 'Все' || selectedAge !== 'Все') && (
+              <div className="mt-4 pt-4 border-t flex items-center justify-between">
+                <p className="text-sm text-muted-foreground">
+                  Найдено товаров: {filteredProducts.length}
+                </p>
+                <Button
+                  variant="ghost"
+                  size="sm"
+                  onClick={() => {
+                    setSelectedBreed('Все');
+                    setSelectedSize('Все');
+                    setSelectedAge('Все');
+                  }}
+                >
+                  <Icon name="X" size={16} className="mr-1" />
+                  Сбросить фильтры
+                </Button>
+              </div>
+            )}
+          </CardContent>
+        </Card>
+        
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-          {products.map(product => (
+          {filteredProducts.map(product => (
             <Card key={product.id} className="overflow-hidden group hover-scale cursor-pointer transition-all">
               <div className="aspect-square overflow-hidden">
                 <img
