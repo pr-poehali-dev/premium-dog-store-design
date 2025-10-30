@@ -49,10 +49,10 @@ const products: Product[] = [
   { id: 25, name: 'Когтеточка премиум', price: 4500, image: 'https://cdn.poehali.dev/projects/149af3ea-bead-4a3d-b0ab-c8d224f705f5/files/32bcfd6c-1451-40af-9f04-3d26f5f9c6ba.jpg', category: 'Аксессуары', breed: ['Все породы'], size: ['S', 'M', 'L'], age: ['Котенок', 'Взрослая', 'Пожилая'], petType: 'cat' },
   { id: 26, name: 'Лоток закрытый', price: 3900, image: 'https://cdn.poehali.dev/projects/149af3ea-bead-4a3d-b0ab-c8d224f705f5/files/62e0f631-cc08-4371-a23d-e6cd8cdbb990.jpg', category: 'Для гигиены', breed: ['Все породы'], size: ['M', 'L'], age: ['Котенок', 'Взрослая', 'Пожилая'], petType: 'cat' },
   { id: 27, name: 'Игрушка с перьями', price: 890, image: 'https://cdn.poehali.dev/projects/149af3ea-bead-4a3d-b0ab-c8d224f705f5/files/65a2feff-86bc-47f6-85d9-cfefea3fbe81.jpg', category: 'Игрушки', breed: ['Все породы'], size: ['S'], age: ['Котенок', 'Взрослая'], petType: 'cat' },
-  { id: 28, name: 'Наполнитель древесный', price: 1200, image: 'https://cdn.poehali.dev/projects/149af3ea-bead-4a3d-b0ab-c8d224f705f5/files/3d1f69da-e5cb-4d74-b803-38d3b7db9f9d.jpg', category: 'Для гигиены', breed: ['Все породы'], size: ['S', 'M', 'L'], age: ['Котенок', 'Взрослая', 'Пожилая'], petType: 'cat' },
-  { id: 29, name: 'Корм для котят', price: 4800, image: 'https://cdn.poehali.dev/projects/149af3ea-bead-4a3d-b0ab-c8d224f705f5/files/250d3e93-1c67-49fd-a7f4-c0d34efa33cb.jpg', category: 'Питание', breed: ['Все породы'], size: ['S', 'M'], age: ['Котенок'], petType: 'cat' },
-  { id: 30, name: 'Лежанка-домик для кошек', price: 6900, image: 'https://cdn.poehali.dev/projects/149af3ea-bead-4a3d-b0ab-c8d224f705f5/files/327c93ae-e94f-47a1-aa44-b9aa794e7d6a.jpg', category: 'Для отдыха', breed: ['Все породы'], size: ['S', 'M'], age: ['Котенок', 'Взрослая', 'Пожилая'], petType: 'cat' },
-  { id: 31, name: 'Щетка-пуходерка', price: 1500, image: 'https://cdn.poehali.dev/projects/149af3ea-bead-4a3d-b0ab-c8d224f705f5/files/60d6d69b-8f5f-4cd6-999a-c023d0583033.jpg', category: 'Уход', breed: ['Все породы'], size: ['S', 'M'], age: ['Котенок', 'Взрослая', 'Пожилая'], petType: 'cat' },
+  { id: 28, name: 'Наполнитель древесный', price: 1200, image: 'https://cdn.poehali.dev/projects/149af3ea-bead-4a3d-b0ab-c8d224f705f5/files/538596b3-3b41-4fba-ad47-2759c2374370.jpg', category: 'Для гигиены', breed: ['Все породы'], size: ['S', 'M', 'L'], age: ['Котенок', 'Взрослая', 'Пожилая'], petType: 'cat' },
+  { id: 29, name: 'Корм для котят', price: 4800, image: 'https://cdn.poehali.dev/projects/149af3ea-bead-4a3d-b0ab-c8d224f705f5/files/23af362e-092a-4dcd-8582-5b061023919e.jpg', category: 'Питание', breed: ['Все породы'], size: ['S', 'M'], age: ['Котенок'], petType: 'cat' },
+  { id: 30, name: 'Лежанка-домик для кошек', price: 6900, image: 'https://cdn.poehali.dev/projects/149af3ea-bead-4a3d-b0ab-c8d224f705f5/files/f2eae6f6-21c4-4964-8ae8-a0b50916fee5.jpg', category: 'Для отдыха', breed: ['Все породы'], size: ['S', 'M'], age: ['Котенок', 'Взрослая', 'Пожилая'], petType: 'cat' },
+  { id: 31, name: 'Щетка-пуходерка', price: 1500, image: 'https://cdn.poehali.dev/projects/149af3ea-bead-4a3d-b0ab-c8d224f705f5/files/90953836-6f31-4c37-aae0-115cd96eb29b.jpg', category: 'Уход', breed: ['Все породы'], size: ['S', 'M'], age: ['Котенок', 'Взрослая', 'Пожилая'], petType: 'cat' },
   { id: 32, name: 'Переноска мягкая', price: 5900, image: 'https://cdn.poehali.dev/projects/149af3ea-bead-4a3d-b0ab-c8d224f705f5/files/83b96ac7-549b-4b4e-8bb1-cb29221f521e.jpg', category: 'Для путешествий', breed: ['Все породы'], size: ['S', 'M'], age: ['Котенок', 'Взрослая', 'Пожилая'], petType: 'cat' },
 ];
 
@@ -188,7 +188,7 @@ export default function Index() {
       <section className="relative h-[600px] flex items-center justify-center overflow-hidden">
         <div className="absolute inset-0 bg-gradient-to-br from-accent/30 to-secondary/20" />
         <img
-          src="https://cdn.poehali.dev/projects/149af3ea-bead-4a3d-b0ab-c8d224f705f5/files/d8f926e1-9b87-47d1-a7fa-1cbd626a7bb4.jpg"
+          src="https://cdn.poehali.dev/projects/149af3ea-bead-4a3d-b0ab-c8d224f705f5/files/6d6fa8a9-e892-41d8-bd40-6acdf8c0115d.jpg"
           alt="Hero"
           className="absolute inset-0 w-full h-full object-cover opacity-20"
         />
@@ -197,7 +197,7 @@ export default function Index() {
             Премиум для <br />вашего друга
           </h2>
           <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
-            Стильные аксессуары и качественные товары для счастливой жизни вашей собаки
+            Стильные аксессуары и качественные товары для счастливой жизни ваших питомцев
           </p>
           <Button size="lg" className="text-lg px-8 py-6">
             Смотреть каталог
