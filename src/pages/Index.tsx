@@ -16,35 +16,44 @@ type Product = {
   breed: string[];
   size: string[];
   age: string[];
+  petType: 'dog' | 'cat';
 };
 
 type CartItem = Product & { quantity: number };
 
 const products: Product[] = [
-  { id: 1, name: 'Премиум ошейник', price: 3500, image: 'https://cdn.poehali.dev/projects/149af3ea-bead-4a3d-b0ab-c8d224f705f5/files/c103c22f-f8c3-4af7-81e0-2a5710814301.jpg', category: 'Аксессуары', breed: ['Все породы'], size: ['S', 'M', 'L'], age: ['Щенок', 'Взрослая', 'Пожилая'] },
-  { id: 2, name: 'Лежанка люкс', price: 8900, image: 'https://cdn.poehali.dev/projects/149af3ea-bead-4a3d-b0ab-c8d224f705f5/files/327c93ae-e94f-47a1-aa44-b9aa794e7d6a.jpg', category: 'Для отдыха', breed: ['Крупные', 'Средние'], size: ['M', 'L', 'XL'], age: ['Взрослая', 'Пожилая'] },
-  { id: 3, name: 'Керамическая миска', price: 2400, image: 'https://cdn.poehali.dev/projects/149af3ea-bead-4a3d-b0ab-c8d224f705f5/files/1fe48415-063b-4c09-b28f-acf6cbcc39aa.jpg', category: 'Аксессуары', breed: ['Все породы'], size: ['S', 'M'], age: ['Щенок', 'Взрослая', 'Пожилая'] },
-  { id: 4, name: 'Игрушка эко', price: 1200, image: 'https://cdn.poehali.dev/projects/149af3ea-bead-4a3d-b0ab-c8d224f705f5/files/c69bf895-1254-4f74-9550-9098122fa596.jpg', category: 'Игрушки', breed: ['Мелкие', 'Средние'], size: ['S', 'M'], age: ['Щенок', 'Взрослая'] },
-  { id: 5, name: 'Поводок кожаный', price: 4200, image: 'https://cdn.poehali.dev/projects/149af3ea-bead-4a3d-b0ab-c8d224f705f5/files/4c06a2b6-e196-45b1-ad8c-bb4552731885.jpg', category: 'Аксессуары', breed: ['Крупные', 'Средние'], size: ['M', 'L'], age: ['Взрослая'] },
-  { id: 6, name: 'Корм премиум', price: 5500, image: 'https://cdn.poehali.dev/projects/149af3ea-bead-4a3d-b0ab-c8d224f705f5/files/3d1f69da-e5cb-4d74-b803-38d3b7db9f9d.jpg', category: 'Питание', breed: ['Все породы'], size: ['S', 'M', 'L', 'XL'], age: ['Взрослая'] },
-  { id: 7, name: 'Переноска люкс', price: 12900, image: 'https://cdn.poehali.dev/projects/149af3ea-bead-4a3d-b0ab-c8d224f705f5/files/83b96ac7-549b-4b4e-8bb1-cb29221f521e.jpg', category: 'Для путешествий', breed: ['Мелкие', 'Средние'], size: ['S', 'M'], age: ['Щенок', 'Взрослая', 'Пожилая'] },
-  { id: 8, name: 'Щетка массажная', price: 1800, image: 'https://cdn.poehali.dev/projects/149af3ea-bead-4a3d-b0ab-c8d224f705f5/files/60d6d69b-8f5f-4cd6-999a-c023d0583033.jpg', category: 'Уход', breed: ['Все породы'], size: ['S', 'M', 'L'], age: ['Щенок', 'Взрослая', 'Пожилая'] },
-  { id: 9, name: 'Шампунь органический', price: 890, image: 'https://cdn.poehali.dev/projects/149af3ea-bead-4a3d-b0ab-c8d224f705f5/files/f51f3204-178e-4939-82b2-5e7aea442489.jpg', category: 'Уход', breed: ['Все породы'], size: ['S', 'M', 'L', 'XL'], age: ['Щенок', 'Взрослая', 'Пожилая'] },
-  { id: 10, name: 'Домик-будка премиум', price: 15900, image: 'https://cdn.poehali.dev/projects/149af3ea-bead-4a3d-b0ab-c8d224f705f5/files/d61e9230-a532-4af9-b74d-5b1ad9a971ad.jpg', category: 'Для отдыха', breed: ['Мелкие', 'Средние'], size: ['S', 'M'], age: ['Щенок', 'Взрослая', 'Пожилая'] },
-  { id: 11, name: 'Намордник мягкий', price: 2100, image: 'https://cdn.poehali.dev/projects/149af3ea-bead-4a3d-b0ab-c8d224f705f5/files/0fd1ffa3-06d5-454d-ac76-502353759b58.jpg', category: 'Аксессуары', breed: ['Крупные', 'Средние'], size: ['M', 'L', 'XL'], age: ['Взрослая'] },
-  { id: 12, name: 'Лакомства для зубов', price: 650, image: 'https://cdn.poehali.dev/projects/149af3ea-bead-4a3d-b0ab-c8d224f705f5/files/250d3e93-1c67-49fd-a7f4-c0d34efa33cb.jpg', category: 'Питание', breed: ['Все породы'], size: ['S', 'M', 'L', 'XL'], age: ['Щенок', 'Взрослая', 'Пожилая'] },
-  { id: 13, name: 'Одежда для холодов', price: 4800, image: 'https://cdn.poehali.dev/projects/149af3ea-bead-4a3d-b0ab-c8d224f705f5/files/a8dcfe7b-ab94-4350-9c91-468118652aea.jpg', category: 'Аксессуары', breed: ['Мелкие', 'Средние'], size: ['S', 'M'], age: ['Щенок', 'Взрослая', 'Пожилая'] },
-  { id: 14, name: 'Автогамак в машину', price: 6900, image: 'https://cdn.poehali.dev/projects/149af3ea-bead-4a3d-b0ab-c8d224f705f5/files/51d3a8f5-f562-4d25-8b0a-e8dc9547e5af.jpg', category: 'Для путешествий', breed: ['Крупные', 'Средние'], size: ['M', 'L', 'XL'], age: ['Щенок', 'Взрослая', 'Пожилая'] },
-  { id: 15, name: 'Интерактивная игрушка', price: 2900, image: 'https://cdn.poehali.dev/projects/149af3ea-bead-4a3d-b0ab-c8d224f705f5/files/2987d57a-5496-4e2b-b203-8fcf94ad6cc3.jpg', category: 'Игрушки', breed: ['Все породы'], size: ['S', 'M', 'L'], age: ['Щенок', 'Взрослая'] },
-  { id: 16, name: 'GPS-трекер', price: 7500, image: 'https://cdn.poehali.dev/projects/149af3ea-bead-4a3d-b0ab-c8d224f705f5/files/cf1d0969-6251-4123-af82-c35439ebb0e7.jpg', category: 'Аксессуары', breed: ['Все породы'], size: ['S', 'M', 'L', 'XL'], age: ['Щенок', 'Взрослая', 'Пожилая'] },
-  { id: 17, name: 'Ортопедическая лежанка', price: 11900, image: 'https://cdn.poehali.dev/projects/149af3ea-bead-4a3d-b0ab-c8d224f705f5/files/327c93ae-e94f-47a1-aa44-b9aa794e7d6a.jpg', category: 'Для отдыха', breed: ['Крупные'], size: ['L', 'XL'], age: ['Пожилая'] },
-  { id: 18, name: 'Миска с подставкой', price: 3200, image: 'https://cdn.poehali.dev/projects/149af3ea-bead-4a3d-b0ab-c8d224f705f5/files/1fe48415-063b-4c09-b28f-acf6cbcc39aa.jpg', category: 'Аксессуары', breed: ['Крупные', 'Средние'], size: ['M', 'L'], age: ['Взрослая', 'Пожилая'] },
-  { id: 19, name: 'Набор игрушек', price: 2100, image: 'https://cdn.poehali.dev/projects/149af3ea-bead-4a3d-b0ab-c8d224f705f5/files/c69bf895-1254-4f74-9550-9098122fa596.jpg', category: 'Игрушки', breed: ['Все породы'], size: ['S', 'M', 'L'], age: ['Щенок', 'Взрослая'] },
-  { id: 20, name: 'Рулетка-поводок', price: 3800, image: 'https://cdn.poehali.dev/projects/149af3ea-bead-4a3d-b0ab-c8d224f705f5/files/4c06a2b6-e196-45b1-ad8c-bb4552731885.jpg', category: 'Аксессуары', breed: ['Средние', 'Крупные'], size: ['M', 'L'], age: ['Взрослая'] },
-  { id: 21, name: 'Витамины для щенков', price: 1450, image: 'https://cdn.poehali.dev/projects/149af3ea-bead-4a3d-b0ab-c8d224f705f5/files/3d1f69da-e5cb-4d74-b803-38d3b7db9f9d.jpg', category: 'Питание', breed: ['Все породы'], size: ['S', 'M', 'L', 'XL'], age: ['Щенок'] },
-  { id: 22, name: 'Переноска авиа', price: 16900, image: 'https://cdn.poehali.dev/projects/149af3ea-bead-4a3d-b0ab-c8d224f705f5/files/83b96ac7-549b-4b4e-8bb1-cb29221f521e.jpg', category: 'Для путешествий', breed: ['Мелкие', 'Средние'], size: ['S', 'M'], age: ['Щенок', 'Взрослая', 'Пожилая'] },
-  { id: 23, name: 'Когтерезка профи', price: 1200, image: 'https://cdn.poehali.dev/projects/149af3ea-bead-4a3d-b0ab-c8d224f705f5/files/60d6d69b-8f5f-4cd6-999a-c023d0583033.jpg', category: 'Уход', breed: ['Все породы'], size: ['S', 'M', 'L', 'XL'], age: ['Щенок', 'Взрослая', 'Пожилая'] },
-  { id: 24, name: 'Кондиционер для шерсти', price: 1090, image: 'https://cdn.poehali.dev/projects/149af3ea-bead-4a3d-b0ab-c8d224f705f5/files/f51f3204-178e-4939-82b2-5e7aea442489.jpg', category: 'Уход', breed: ['Все породы'], size: ['S', 'M', 'L', 'XL'], age: ['Взрослая', 'Пожилая'] },
+  { id: 1, name: 'Премиум ошейник', price: 3500, image: 'https://cdn.poehali.dev/projects/149af3ea-bead-4a3d-b0ab-c8d224f705f5/files/c103c22f-f8c3-4af7-81e0-2a5710814301.jpg', category: 'Аксессуары', breed: ['Все породы'], size: ['S', 'M', 'L'], age: ['Щенок', 'Взрослая', 'Пожилая'], petType: 'dog' },
+  { id: 2, name: 'Лежанка люкс', price: 8900, image: 'https://cdn.poehali.dev/projects/149af3ea-bead-4a3d-b0ab-c8d224f705f5/files/327c93ae-e94f-47a1-aa44-b9aa794e7d6a.jpg', category: 'Для отдыха', breed: ['Крупные', 'Средние'], size: ['M', 'L', 'XL'], age: ['Взрослая', 'Пожилая'], petType: 'dog' },
+  { id: 3, name: 'Керамическая миска', price: 2400, image: 'https://cdn.poehali.dev/projects/149af3ea-bead-4a3d-b0ab-c8d224f705f5/files/1fe48415-063b-4c09-b28f-acf6cbcc39aa.jpg', category: 'Аксессуары', breed: ['Все породы'], size: ['S', 'M'], age: ['Щенок', 'Взрослая', 'Пожилая'], petType: 'dog' },
+  { id: 4, name: 'Игрушка эко', price: 1200, image: 'https://cdn.poehali.dev/projects/149af3ea-bead-4a3d-b0ab-c8d224f705f5/files/c69bf895-1254-4f74-9550-9098122fa596.jpg', category: 'Игрушки', breed: ['Мелкие', 'Средние'], size: ['S', 'M'], age: ['Щенок', 'Взрослая'], petType: 'dog' },
+  { id: 5, name: 'Поводок кожаный', price: 4200, image: 'https://cdn.poehali.dev/projects/149af3ea-bead-4a3d-b0ab-c8d224f705f5/files/4c06a2b6-e196-45b1-ad8c-bb4552731885.jpg', category: 'Аксессуары', breed: ['Крупные', 'Средние'], size: ['M', 'L'], age: ['Взрослая'], petType: 'dog' },
+  { id: 6, name: 'Корм премиум', price: 5500, image: 'https://cdn.poehali.dev/projects/149af3ea-bead-4a3d-b0ab-c8d224f705f5/files/3d1f69da-e5cb-4d74-b803-38d3b7db9f9d.jpg', category: 'Питание', breed: ['Все породы'], size: ['S', 'M', 'L', 'XL'], age: ['Взрослая'], petType: 'dog' },
+  { id: 7, name: 'Переноска люкс', price: 12900, image: 'https://cdn.poehali.dev/projects/149af3ea-bead-4a3d-b0ab-c8d224f705f5/files/83b96ac7-549b-4b4e-8bb1-cb29221f521e.jpg', category: 'Для путешествий', breed: ['Мелкие', 'Средние'], size: ['S', 'M'], age: ['Щенок', 'Взрослая', 'Пожилая'], petType: 'dog' },
+  { id: 8, name: 'Щетка массажная', price: 1800, image: 'https://cdn.poehali.dev/projects/149af3ea-bead-4a3d-b0ab-c8d224f705f5/files/60d6d69b-8f5f-4cd6-999a-c023d0583033.jpg', category: 'Уход', breed: ['Все породы'], size: ['S', 'M', 'L'], age: ['Щенок', 'Взрослая', 'Пожилая'], petType: 'dog' },
+  { id: 9, name: 'Шампунь органический', price: 890, image: 'https://cdn.poehali.dev/projects/149af3ea-bead-4a3d-b0ab-c8d224f705f5/files/f51f3204-178e-4939-82b2-5e7aea442489.jpg', category: 'Уход', breed: ['Все породы'], size: ['S', 'M', 'L', 'XL'], age: ['Щенок', 'Взрослая', 'Пожилая'], petType: 'dog' },
+  { id: 10, name: 'Домик-будка премиум', price: 15900, image: 'https://cdn.poehali.dev/projects/149af3ea-bead-4a3d-b0ab-c8d224f705f5/files/d61e9230-a532-4af9-b74d-5b1ad9a971ad.jpg', category: 'Для отдыха', breed: ['Мелкие', 'Средние'], size: ['S', 'M'], age: ['Щенок', 'Взрослая', 'Пожилая'], petType: 'dog' },
+  { id: 11, name: 'Намордник мягкий', price: 2100, image: 'https://cdn.poehali.dev/projects/149af3ea-bead-4a3d-b0ab-c8d224f705f5/files/0fd1ffa3-06d5-454d-ac76-502353759b58.jpg', category: 'Аксессуары', breed: ['Крупные', 'Средние'], size: ['M', 'L', 'XL'], age: ['Взрослая'], petType: 'dog' },
+  { id: 12, name: 'Лакомства для зубов', price: 650, image: 'https://cdn.poehali.dev/projects/149af3ea-bead-4a3d-b0ab-c8d224f705f5/files/250d3e93-1c67-49fd-a7f4-c0d34efa33cb.jpg', category: 'Питание', breed: ['Все породы'], size: ['S', 'M', 'L', 'XL'], age: ['Щенок', 'Взрослая', 'Пожилая'], petType: 'dog' },
+  { id: 13, name: 'Одежда для холодов', price: 4800, image: 'https://cdn.poehali.dev/projects/149af3ea-bead-4a3d-b0ab-c8d224f705f5/files/a8dcfe7b-ab94-4350-9c91-468118652aea.jpg', category: 'Аксессуары', breed: ['Мелкие', 'Средние'], size: ['S', 'M'], age: ['Щенок', 'Взрослая', 'Пожилая'], petType: 'dog' },
+  { id: 14, name: 'Автогамак в машину', price: 6900, image: 'https://cdn.poehali.dev/projects/149af3ea-bead-4a3d-b0ab-c8d224f705f5/files/51d3a8f5-f562-4d25-8b0a-e8dc9547e5af.jpg', category: 'Для путешествий', breed: ['Крупные', 'Средние'], size: ['M', 'L', 'XL'], age: ['Щенок', 'Взрослая', 'Пожилая'], petType: 'dog' },
+  { id: 15, name: 'Интерактивная игрушка', price: 2900, image: 'https://cdn.poehali.dev/projects/149af3ea-bead-4a3d-b0ab-c8d224f705f5/files/2987d57a-5496-4e2b-b203-8fcf94ad6cc3.jpg', category: 'Игрушки', breed: ['Все породы'], size: ['S', 'M', 'L'], age: ['Щенок', 'Взрослая'], petType: 'dog' },
+  { id: 16, name: 'GPS-трекер', price: 7500, image: 'https://cdn.poehali.dev/projects/149af3ea-bead-4a3d-b0ab-c8d224f705f5/files/cf1d0969-6251-4123-af82-c35439ebb0e7.jpg', category: 'Аксессуары', breed: ['Все породы'], size: ['S', 'M', 'L', 'XL'], age: ['Щенок', 'Взрослая', 'Пожилая'], petType: 'dog' },
+  { id: 17, name: 'Ортопедическая лежанка', price: 11900, image: 'https://cdn.poehali.dev/projects/149af3ea-bead-4a3d-b0ab-c8d224f705f5/files/327c93ae-e94f-47a1-aa44-b9aa794e7d6a.jpg', category: 'Для отдыха', breed: ['Крупные'], size: ['L', 'XL'], age: ['Пожилая'], petType: 'dog' },
+  { id: 18, name: 'Миска с подставкой', price: 3200, image: 'https://cdn.poehali.dev/projects/149af3ea-bead-4a3d-b0ab-c8d224f705f5/files/1fe48415-063b-4c09-b28f-acf6cbcc39aa.jpg', category: 'Аксессуары', breed: ['Крупные', 'Средние'], size: ['M', 'L'], age: ['Взрослая', 'Пожилая'], petType: 'dog' },
+  { id: 19, name: 'Набор игрушек', price: 2100, image: 'https://cdn.poehali.dev/projects/149af3ea-bead-4a3d-b0ab-c8d224f705f5/files/c69bf895-1254-4f74-9550-9098122fa596.jpg', category: 'Игрушки', breed: ['Все породы'], size: ['S', 'M', 'L'], age: ['Щенок', 'Взрослая'], petType: 'dog' },
+  { id: 20, name: 'Рулетка-поводок', price: 3800, image: 'https://cdn.poehali.dev/projects/149af3ea-bead-4a3d-b0ab-c8d224f705f5/files/4c06a2b6-e196-45b1-ad8c-bb4552731885.jpg', category: 'Аксессуары', breed: ['Средние', 'Крупные'], size: ['M', 'L'], age: ['Взрослая'], petType: 'dog' },
+  { id: 21, name: 'Витамины для щенков', price: 1450, image: 'https://cdn.poehali.dev/projects/149af3ea-bead-4a3d-b0ab-c8d224f705f5/files/3d1f69da-e5cb-4d74-b803-38d3b7db9f9d.jpg', category: 'Питание', breed: ['Все породы'], size: ['S', 'M', 'L', 'XL'], age: ['Щенок'], petType: 'dog' },
+  { id: 22, name: 'Переноска авиа', price: 16900, image: 'https://cdn.poehali.dev/projects/149af3ea-bead-4a3d-b0ab-c8d224f705f5/files/83b96ac7-549b-4b4e-8bb1-cb29221f521e.jpg', category: 'Для путешествий', breed: ['Мелкие', 'Средние'], size: ['S', 'M'], age: ['Щенок', 'Взрослая', 'Пожилая'], petType: 'dog' },
+  { id: 23, name: 'Когтерезка профи', price: 1200, image: 'https://cdn.poehali.dev/projects/149af3ea-bead-4a3d-b0ab-c8d224f705f5/files/60d6d69b-8f5f-4cd6-999a-c023d0583033.jpg', category: 'Уход', breed: ['Все породы'], size: ['S', 'M', 'L', 'XL'], age: ['Щенок', 'Взрослая', 'Пожилая'], petType: 'dog' },
+  { id: 24, name: 'Кондиционер для шерсти', price: 1090, image: 'https://cdn.poehali.dev/projects/149af3ea-bead-4a3d-b0ab-c8d224f705f5/files/f51f3204-178e-4939-82b2-5e7aea442489.jpg', category: 'Уход', breed: ['Все породы'], size: ['S', 'M', 'L', 'XL'], age: ['Взрослая', 'Пожилая'], petType: 'dog' },
+  { id: 25, name: 'Когтеточка премиум', price: 4500, image: 'https://cdn.poehali.dev/projects/149af3ea-bead-4a3d-b0ab-c8d224f705f5/files/32bcfd6c-1451-40af-9f04-3d26f5f9c6ba.jpg', category: 'Аксессуары', breed: ['Все породы'], size: ['S', 'M', 'L'], age: ['Котенок', 'Взрослая', 'Пожилая'], petType: 'cat' },
+  { id: 26, name: 'Лоток закрытый', price: 3900, image: 'https://cdn.poehali.dev/projects/149af3ea-bead-4a3d-b0ab-c8d224f705f5/files/62e0f631-cc08-4371-a23d-e6cd8cdbb990.jpg', category: 'Для гигиены', breed: ['Все породы'], size: ['M', 'L'], age: ['Котенок', 'Взрослая', 'Пожилая'], petType: 'cat' },
+  { id: 27, name: 'Игрушка с перьями', price: 890, image: 'https://cdn.poehali.dev/projects/149af3ea-bead-4a3d-b0ab-c8d224f705f5/files/65a2feff-86bc-47f6-85d9-cfefea3fbe81.jpg', category: 'Игрушки', breed: ['Все породы'], size: ['S'], age: ['Котенок', 'Взрослая'], petType: 'cat' },
+  { id: 28, name: 'Наполнитель древесный', price: 1200, image: 'https://cdn.poehali.dev/projects/149af3ea-bead-4a3d-b0ab-c8d224f705f5/files/3d1f69da-e5cb-4d74-b803-38d3b7db9f9d.jpg', category: 'Для гигиены', breed: ['Все породы'], size: ['S', 'M', 'L'], age: ['Котенок', 'Взрослая', 'Пожилая'], petType: 'cat' },
+  { id: 29, name: 'Корм для котят', price: 4800, image: 'https://cdn.poehali.dev/projects/149af3ea-bead-4a3d-b0ab-c8d224f705f5/files/250d3e93-1c67-49fd-a7f4-c0d34efa33cb.jpg', category: 'Питание', breed: ['Все породы'], size: ['S', 'M'], age: ['Котенок'], petType: 'cat' },
+  { id: 30, name: 'Лежанка-домик для кошек', price: 6900, image: 'https://cdn.poehali.dev/projects/149af3ea-bead-4a3d-b0ab-c8d224f705f5/files/327c93ae-e94f-47a1-aa44-b9aa794e7d6a.jpg', category: 'Для отдыха', breed: ['Все породы'], size: ['S', 'M'], age: ['Котенок', 'Взрослая', 'Пожилая'], petType: 'cat' },
+  { id: 31, name: 'Щетка-пуходерка', price: 1500, image: 'https://cdn.poehali.dev/projects/149af3ea-bead-4a3d-b0ab-c8d224f705f5/files/60d6d69b-8f5f-4cd6-999a-c023d0583033.jpg', category: 'Уход', breed: ['Все породы'], size: ['S', 'M'], age: ['Котенок', 'Взрослая', 'Пожилая'], petType: 'cat' },
+  { id: 32, name: 'Переноска мягкая', price: 5900, image: 'https://cdn.poehali.dev/projects/149af3ea-bead-4a3d-b0ab-c8d224f705f5/files/83b96ac7-549b-4b4e-8bb1-cb29221f521e.jpg', category: 'Для путешествий', breed: ['Все породы'], size: ['S', 'M'], age: ['Котенок', 'Взрослая', 'Пожилая'], petType: 'cat' },
 ];
 
 const reviews = [
@@ -59,6 +68,7 @@ export default function Index() {
   const [selectedBreed, setSelectedBreed] = useState<string>('Все');
   const [selectedSize, setSelectedSize] = useState<string>('Все');
   const [selectedAge, setSelectedAge] = useState<string>('Все');
+  const [selectedPetType, setSelectedPetType] = useState<'dog' | 'cat'>('dog');
 
   const addToCart = (product: Product) => {
     setCart(prev => {
@@ -85,10 +95,11 @@ export default function Index() {
   const cartCount = cart.reduce((sum, item) => sum + item.quantity, 0);
 
   const filteredProducts = products.filter(product => {
+    const petTypeMatch = product.petType === selectedPetType;
     const breedMatch = selectedBreed === 'Все' || product.breed.includes(selectedBreed) || product.breed.includes('Все породы');
     const sizeMatch = selectedSize === 'Все' || product.size.includes(selectedSize);
     const ageMatch = selectedAge === 'Все' || product.age.includes(selectedAge);
-    return breedMatch && sizeMatch && ageMatch;
+    return petTypeMatch && breedMatch && sizeMatch && ageMatch;
   });
 
   return (
@@ -199,6 +210,38 @@ export default function Index() {
         
         <Card className="max-w-4xl mx-auto mb-12">
           <CardContent className="p-6">
+            <div className="mb-6">
+              <Label className="text-sm font-semibold mb-3 block">Питомец</Label>
+              <div className="flex gap-3">
+                <Button
+                  variant={selectedPetType === 'dog' ? 'default' : 'outline'}
+                  size="lg"
+                  onClick={() => {
+                    setSelectedPetType('dog');
+                    setSelectedBreed('Все');
+                    setSelectedAge('Все');
+                  }}
+                  className="flex-1"
+                >
+                  <Icon name="Dog" className="mr-2" size={20} />
+                  Собаки
+                </Button>
+                <Button
+                  variant={selectedPetType === 'cat' ? 'default' : 'outline'}
+                  size="lg"
+                  onClick={() => {
+                    setSelectedPetType('cat');
+                    setSelectedBreed('Все');
+                    setSelectedAge('Все');
+                  }}
+                  className="flex-1"
+                >
+                  <Icon name="Cat" className="mr-2" size={20} />
+                  Кошки
+                </Button>
+              </div>
+            </div>
+            
             <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
               <div>
                 <Label className="text-sm font-semibold mb-2 block">Порода</Label>
@@ -235,7 +278,10 @@ export default function Index() {
               <div>
                 <Label className="text-sm font-semibold mb-2 block">Возраст</Label>
                 <div className="flex flex-wrap gap-2">
-                  {['Все', 'Щенок', 'Взрослая', 'Пожилая'].map(age => (
+                  {(selectedPetType === 'dog' 
+                    ? ['Все', 'Щенок', 'Взрослая', 'Пожилая']
+                    : ['Все', 'Котенок', 'Взрослая', 'Пожилая']
+                  ).map(age => (
                     <Button
                       key={age}
                       variant={selectedAge === age ? 'default' : 'outline'}
