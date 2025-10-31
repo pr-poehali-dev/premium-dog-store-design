@@ -190,7 +190,7 @@ export default function Index() {
         <img
           src="https://cdn.poehali.dev/projects/149af3ea-bead-4a3d-b0ab-c8d224f705f5/files/6d6fa8a9-e892-41d8-bd40-6acdf8c0115d.jpg"
           alt="Hero"
-          className="absolute inset-0 w-full h-full object-cover opacity-20"
+          className="absolute inset-0 w-full h-full object-contain object-center opacity-20"
         />
         <div className="relative z-10 text-center space-y-6 px-4 animate-fade-in">
           <h2 className="text-5xl md:text-7xl font-bold">
